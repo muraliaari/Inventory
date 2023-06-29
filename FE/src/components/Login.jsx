@@ -37,6 +37,7 @@ const Login = () => {
   }
   return (
     <div>
+      
         <h1>Login</h1>
         <div className="input-group mb-3">
   
@@ -48,8 +49,8 @@ const Login = () => {
   <input type="text" className="form-control" placeholder='password' onChange={(e)=> setPassword(e.target.value)}/>
   
 </div>
-<button onClick={handleLogin}>Login</button>
-<button onClick={()=>navigate("/signup")}>Signup</button>
+<button onClick={handleLogin} className='button-login'>Login</button>
+<button onClick={()=>navigate("/signup")} className='button-login'>Signup</button>
 
 
     </div>

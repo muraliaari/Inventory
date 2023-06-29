@@ -60,7 +60,7 @@ const handleSubmit=async()=>{
   <input type="text" placeholder="Confirm Password" className="form-control" onChange={(e)=> setCpassword(e.target.value)}/>
   
 </div>
-      <button onClick={handleSubmit}>Submit</button>
+      <button onClick={handleSubmit} className='button-signup'>Submit</button>
 
     </div>
   )
