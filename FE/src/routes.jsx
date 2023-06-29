@@ -3,7 +3,7 @@ import BuyDetails from "./components/BuyDetails"
 import Inventory from "./components/Inventory"
 import Login from "./components/Login"
 import Signup from "./components/Signup"
-import UserInventry from "./components/USerInventry"
+import UserInventry from "./components/UserInventry"
 
 const routes = [
     {
