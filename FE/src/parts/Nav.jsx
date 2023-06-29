@@ -64,7 +64,7 @@ const Nav = () => {
                 <StorefrontIcon/>
               </ListItemIcon>
               
-              <ListItemText primary="Buy Details"/>
+              <ListItemText primary="Payment"/>
             </ListItemButton>
           </ListItem>
 
@@ -101,8 +101,8 @@ const Nav = () => {
     <div>
       <nav className="navbar navbar-expand-lg border-bottom bg-primary" >
   <div className="container-fluid" style={{marginLeft:"400px"}}>
-  <input className="form-control me" type="search" placeholder="Search" aria-label="Search" style={{width:"300px"}}/>
-        <button className="btn btn-outline-success" type="submit">Search</button>
+  
+        
     
     <i className="fa-solid fa-user-large fa-lg" style={{marginTop:"5px", paddingInline:"20px"}}>{name}</i> &nbsp;
     
@@ -129,7 +129,7 @@ const Nav = () => {
         
         {['Menu'].map((anchor) => (
         <Fragment key={anchor}>
-          <i className="fa-solid fa-bars" style={{marginTop:"20px", marginLeft:"50px"}}></i>
+          <i className="fa-solid fa-bars" style={{marginTop:"10px", marginLeft:"50px"}}></i>
           <Button style={{color:"black", marginLeft:"-10px", paddingInline:"15px"}} onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
           <Drawer
             anchor={anchor}

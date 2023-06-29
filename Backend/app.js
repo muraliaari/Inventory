@@ -2,7 +2,7 @@ import express from 'express'
 import cors from 'cors'
 import bodyParser from 'body-parser';
 
-import {AddUserDetails, getUserDetails, AddCompanyDetails, getCompanyDetails, deleteCompany, AddItems, getItemDetails, updateStock} from './UserController.js'
+import {AddUserDetails, getUserDetails, AddCompanyDetails, getCompanyDetails, deleteCompany, AddItems, sendEmail, getItemDetails, updateStock} from './UserController.js'
 
 const app= express()
 app.use(express())
@@ -25,5 +25,7 @@ app.post('/inventory', AddItems)
 app.get('/inventory', cors(), getItemDetails) 
 
 app.post('/updateStock', updateStock)
+
+app.post('/send-email', sendEmail)
 
 app.listen(4000, ()=> console.log('Listening to the port 4k...'))

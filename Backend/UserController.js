@@ -1,5 +1,6 @@
 import {UserModel, CompanyModel, ItemModel} from "./UserModels.js";
 import bcrypt from 'bcryptjs';
+import axios from 'axios'
 
 const AddUserDetails = async (req, res)=>{
     const {name, username, password, cpassword} = req.body
@@ -162,4 +163,33 @@ const updateStock = async(req, res)=>{
       res.status(500).json({ message: "Internal server error" });
     }
 }
-export { AddUserDetails, getUserDetails, AddCompanyDetails, getCompanyDetails, deleteCompany, AddItems, getItemDetails, updateStock}
+
+const sendEmail = async(req, res)=>{
+    try {
+        const { to, from, subject, html } = req.body;
+        // console.log(to, from, subject, html)
+        const sendGridApiKey = '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'
+    
+        const response = await axios.post('https://api.sendgrid.com/v3/mail/send', {
+          personalizations: [
+            {
+              to: [{ email: to }],
+              subject: subject,
+            },
+          ],
+          from: { email: from },
+          content: [{ type: 'text/html', value: html }],
+        }, {
+          headers: {
+            'Authorization': `Bearer ${sendGridApiKey}`, // Replace with your SendGrid API key
+            'Content-Type': 'application/json',
+          },
+        });
+    
+        res.status(response.status).json({ message: 'Email sent successfully' });
+      } catch (error) {
+        console.error('Error sending email:', error);
+        res.status(error.response.status).json({ message: 'Failed to send email' });
+      }
+}
+export { AddUserDetails, getUserDetails, AddCompanyDetails, sendEmail, getCompanyDetails, deleteCompany, AddItems, getItemDetails, updateStock}

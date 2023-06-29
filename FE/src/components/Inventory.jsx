@@ -212,7 +212,7 @@ const Inventory = () => {
   return (
     <div>
       <div>
-        <button className="" onClick={handleAddItems}>
+        <button className="button-17" onClick={handleAddItems}>
           Add Item
         </button>
         {flag ? (
@@ -227,7 +227,7 @@ const Inventory = () => {
               placeholder="price"
               onChange={(e) => setItemPrice(e.target.value)}
             />
-            <button onClick={handleAdd}>Add</button>
+            <button onClick={handleAdd} className="button-68">Add</button>
           </>
         ) : (
           <></>
@@ -247,7 +247,7 @@ const Inventory = () => {
                 <TableCell align="right">Unit</TableCell>
                 <TableCell align="right">Price/kg&nbsp;</TableCell>
                 <TableCell align="right"><button onClick={()=>setBuy("buy")}>Buy</button> or <button onClick={()=>setBuy('sell')}>Sell</button></TableCell>
-                <TableCell align="right">Action&nbsp;</TableCell>
+                <TableCell align="right">Total&nbsp;</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -294,6 +294,7 @@ const Inventory = () => {
                   </TableCell>
                   <TableCell align="right">
                     <IconButton aria-label="delete">
+                      {row.itemPrice * itemsArray[i].stock}
                     
                     </IconButton>
                   </TableCell>
