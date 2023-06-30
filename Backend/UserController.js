@@ -16,7 +16,7 @@ const AddUserDetails = async (req, res)=>{
             const Users = await UserModel({name,username, password, cpassword})
             await Users.save()
             res.status(200).json({"message" : "success"})
-            console.log("insetion done")
+            // console.log("insetion done")
         }
     } catch(err){
         console.log(err)
@@ -33,7 +33,7 @@ const AddUserDetails = async (req, res)=>{
 const getUserDetails =async(req, res)=>{
     try{
         const {username, password} = req.body
-        console.log(username, password, 'from')
+        // console.log(username, password, 'from')
         const User = await UserModel.findOne({username : username});
         if(User){
         if(bcrypt.compareSync(password, User.password)){ //comparing
@@ -54,9 +54,9 @@ const getUserDetails =async(req, res)=>{
 const AddCompanyDetails= async(req, res)=>{
     try{
         const {username, company,category, date} = req.body
-        console.log(company, date, username, category)
+        // console.log(company, date, username, category)
         const UserCompany = await CompanyModel.findOne({username : username, company : company})
-        console.log(UserCompany)
+        // console.log(UserCompany)
         if(UserCompany){//check if data exists
         if(UserCompany.company === company) // hard check
         res.status(200).json({"message" : "exists"}) 
@@ -64,7 +64,7 @@ const AddCompanyDetails= async(req, res)=>{
         else{
          const UsersCompany = await CompanyModel.insertMany([{username, company, category, date}])
          const Users = await CompanyModel.find({})
-         console.log(UsersCompany)
+        //  console.log(UsersCompany)
         // await UsersCompany.save()
         res.status(200).json({"message" : "success", data : Users})
         }
@@ -79,7 +79,7 @@ const AddCompanyDetails= async(req, res)=>{
 const getCompanyDetails =async(req, res)=>{
     try{
         const {username} = req.query;
-        console.log(username)
+        // console.log(username)
         const userInventory = await CompanyModel.find({ username }, 'username company category date');
         res.status(200).json({ data: userInventory });
         // console.log(userInventory)
@@ -94,10 +94,10 @@ const deleteCompany=async(req, res)=>{
     try{
         const username = req.params.username;
         const companyName = req.params.companyName;
-        console.log(companyName)
+        // console.log(companyName)
         await CompanyModel.findOneAndDelete({ username, company: companyName });
         res.sendStatus(204); // Sending 204 No Content status code on successful deletion
-        console.log('Deleted')
+        // console.log('Deleted')
 
     } catch (err) {
         console.log(err);
@@ -108,7 +108,7 @@ const deleteCompany=async(req, res)=>{
 const AddItems= async(req, res)=>{
     try{
         const {username, itemName, itemPrice} = req.body
-        console.log(username, itemName, itemPrice)
+        // console.log(username, itemName, itemPrice)
 
         const findItem = await ItemModel.findOne({username  : username, itemName : itemName})
         if(findItem){
@@ -116,7 +116,7 @@ const AddItems= async(req, res)=>{
         }
         else{
             const FindItem = await ItemModel.insertMany({username, itemName, itemPrice})
-            console.log("item inserted")
+            // console.log("item inserted")
             res.status(200).json({"message" : "data added", data : FindItem})
         }
     } catch(err){
@@ -128,10 +128,10 @@ const AddItems= async(req, res)=>{
 const getItemDetails= async(req, res)=>{
     try{
         const {username} = req.query;
-    console.log(username)
+    // console.log(username)
     const userItems = await ItemModel.find({ username }, 'username itemName itemPrice stock');
     res.status(200).json({ data: userItems });
-    console.log(userItems)
+    // console.log(userItems)
 
     } catch(err){
         console.log(err)
@@ -141,7 +141,7 @@ const getItemDetails= async(req, res)=>{
 
 const updateStock = async(req, res)=>{
     let { username,itemName, stock, buysellPrice } = req.body;
-    console.log(username, stock, itemName, buysellPrice)
+    // console.log(username, stock, itemName, buysellPrice)
     // console.log(typeof(stock))
     // stock = Number(stock) + Number(buysellPrice)
     // console.log(stock)
@@ -152,8 +152,8 @@ const updateStock = async(req, res)=>{
         { $set: { stock: stock } },
         { new: true }
       );
-      console.log('updated')
-      console.log(updatedItem)
+    //   console.log('updated')
+    //   console.log(updatedItem)
   
       if (!updatedItem) {
         return res.status(404).json({ message: "Item not found" });
