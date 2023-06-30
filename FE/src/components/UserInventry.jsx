@@ -124,7 +124,7 @@ const USerInventry = () => {
   return (
     <div>
       <div style={{display:"inline-flex", padding:"5px", marginLeft:"300px"}}>
-      <button className="btn btn-outline-primary btn-sm" onClick={handleCompany} style={{width:"200px"}}>Add Company</button> &nbsp; &nbsp;
+      <button className="button-4" onClick={handleCompany} style={{width:"200px"}}>Add Company</button> &nbsp; &nbsp;
 
 {
   flag ? <><input type="text"  className="form-control" placeholder="Company Name" onChange={(e)=>setComany(e.target.value)} style={{paddingInline:"20px"}}/>&nbsp; &nbsp;

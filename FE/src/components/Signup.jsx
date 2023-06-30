@@ -42,22 +42,22 @@ const handleSubmit=async()=>{
       <h1>Signup</h1>
 
 <div className="input mb-3">
-  <input type="text" placeholder="name" className="form-control" onChange={handleName}/>
+  <input type="text" placeholder="name" className="form" onChange={handleName} style={{width:"200px"}}/>
 </div>
 <div className="input-group mb-3">
   
-  <input type="text" placeholder="username" className="form-control" onChange={(e)=> setUsername(e.target.value)}/>
+  <input type="text" placeholder="username" className="form" onChange={(e)=> setUsername(e.target.value)} style={{width:"200px"}}/>
   
 </div>
 <div className="input-group mb-3">
   
-  <input type="text" placeholder="Password" className="form-control" onChange={(e)=> setPassword(e.target.value)}/>
+  <input type="text" placeholder="Password" className="form" onChange={(e)=> setPassword(e.target.value)} style={{width:"200px"}}/>
   
 </div>
 
 <div className="input-group mb-3">
   
-  <input type="text" placeholder="Confirm Password" className="form-control" onChange={(e)=> setCpassword(e.target.value)}/>
+  <input type="text" placeholder="Confirm Password" className="form" onChange={(e)=> setCpassword(e.target.value)} style={{width:"200px"}}/>
   
 </div>
       <button onClick={handleSubmit} className='button-signup'>Submit</button>

@@ -36,17 +36,17 @@ const Login = () => {
       }
   }
   return (
-    <div>
+    <div className='gradient'>
       
         <h1>Login</h1>
         <div className="input-group mb-3">
   
-  <input type="text" className="form-control" placeholder='username' onChange={(e)=> setUsername(e.target.value)}/>
+  <input type="text" className="form" placeholder='username' onChange={(e)=> setUsername(e.target.value)} style={{width:"200px"}}/>
   
 </div>
 <div className="input-group mb-3">
   
-  <input type="text" className="form-control" placeholder='password' onChange={(e)=> setPassword(e.target.value)}/>
+  <input type="text" className="form" placeholder='password' onChange={(e)=> setPassword(e.target.value)} style={{width:"200px"}}/>
   
 </div>
 <button onClick={handleLogin} className='button-login'>Login</button>
