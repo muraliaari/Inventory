@@ -31,7 +31,7 @@ const Inventory = () => {
       console.log(stockArray)
       // console.log(username)
       const response = await axios.get(
-        `https://muraliaari-user-inventory.netlify.app/inventory?username=${username}`
+        `https://inventory-q0g5.onrender.com/inventory?username=${username}`
       );
       const newData = response.data.data.map((item) => ({
         itemName: item.itemName,
@@ -78,7 +78,7 @@ const Inventory = () => {
     setFlag(false);
     if (itemName && itemPrice) {
       try {
-        await axios.post("https://muraliaari-user-inventory.netlify.app/inventory", {
+        await axios.post("https://inventory-q0g5.onrender.com/inventory", {
           username,
           itemName,
           itemPrice,
@@ -117,7 +117,7 @@ const Inventory = () => {
     const username = sessionStorage.getItem('username')
 
     try {
-      await axios.post("https://muraliaari-user-inventory.netlify.app/updateStock", {
+      await axios.post("https://inventory-q0g5.onrender.com/updateStock", {
         username,
         itemName: itemToUpdate.itemName,
         stock: stockValue,
@@ -156,7 +156,7 @@ const Inventory = () => {
       return;
     }
     try {
-      await axios.post("https://muraliaari-user-inventory.netlify.app/updateStock", {
+      await axios.post("https://inventory-q0g5.onrender.com/updateStock", {
         username,
         itemName: itemToUpdate.itemName,  
         stock: stockValue + buyValue ,
@@ -190,7 +190,7 @@ const Inventory = () => {
       return;
     }
     try {
-      await axios.post("https://muraliaari-user-inventory.netlify.app/updateStock", {
+      await axios.post("https://inventory-q0g5.onrender.com/updateStock", {
         username,
         itemName: itemToUpdate.itemName,  
         stock: (stockValue-buyValue) < 0 ? 0 : (stockValue - buyValue) ,

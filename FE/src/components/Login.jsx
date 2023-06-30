@@ -11,7 +11,7 @@ const Login = () => {
       if(username, password){
         try{
           console.log(username, password)
-          axios.post('https://muraliaari-user-inventory.netlify.app/login',{
+          axios.post('https://inventory-q0g5.onrender.com/login',{
             username,
             password
           }).then((res)=>{

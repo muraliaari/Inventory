@@ -24,7 +24,7 @@ const USerInventry = () => {
     try {
       const username = sessionStorage.getItem('username'); 
       console.log(username)
-      const response = await axios.get(`http://localhost:4000/userinventory?username=${username}`);
+      const response = await axios.get(`https://inventory-q0g5.onrender.com/userinventory?username=${username}`);
       console.log(response.data.data);
   
       // Extract only the username and company fields from the response data
@@ -71,7 +71,7 @@ const USerInventry = () => {
     console.log(sessionStorage.getItem('name'),  username)
     if(company){
       try{
-        await axios.post("https://muraliaari-user-inventory.netlify.app/userinventory",{
+        await axios.post("https://inventory-q0g5.onrender.com/userinventory",{
           username,
           company,
           category,
@@ -112,7 +112,7 @@ const USerInventry = () => {
       const username = sessionStorage.getItem('username');
       const companyName = itemsarray[index].company;
 
-      await axios.delete(`https://muraliaari-user-inventory.netlify.app/userinventory/${username}/${companyName}`);
+      await axios.delete(`https://inventory-q0g5.onrender.com/userinventory/${username}/${companyName}`);
       const updatedItemsArray = [...itemsarray];
       updatedItemsArray.splice(index, 1);
       setitems(updatedItemsArray);

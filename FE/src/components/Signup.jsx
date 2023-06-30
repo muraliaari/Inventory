@@ -20,7 +20,7 @@ const handleSubmit=async()=>{
   console.log(name, username, password, cpassword)
   if(name, username, password, cpassword){
     try{
-      await axios.post('https://muraliaari-user-inventory.netlify.app/signup', {
+      await axios.post('https://inventory-q0g5.onrender.com/signup', {
         name,
         username,
         password, 
