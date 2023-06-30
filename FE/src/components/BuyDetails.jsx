@@ -8,14 +8,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import sgMail from '@sendgrid/mail';
 import axios from 'axios'
-// import dotenv from 'dotenv'
-
-// dotenv.config()
-
-// eslint-disable-next-line no-undef
-// const apiKey = process.env.REACT_APP_SENDGRID_API_KEY;
 
 
 const BuyDetails = () => {
@@ -26,13 +19,7 @@ const BuyDetails = () => {
   const [overlayVisible, setOverlayVisible] = useState(false);
 
   const { register, handleSubmit, formState: { errors } } = useForm();
-
   
-  useEffect(()=>{
-    sgMail.setApiKey('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');
-  },[])
-  
-
   useEffect(() => {
 
     setDetailsArray([...buyArray]);

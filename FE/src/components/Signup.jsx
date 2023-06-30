@@ -1,4 +1,4 @@
-import  {  useReducer, useState } from 'react'
+import  { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
@@ -20,7 +20,7 @@ const handleSubmit=async()=>{
   console.log(name, username, password, cpassword)
   if(name, username, password, cpassword){
     try{
-      await axios.post('http://localhost:4000/signup', {
+      await axios.post('https://muraliaari-user-inventory.netlify.app/signup', {
         name,
         username,
         password, 

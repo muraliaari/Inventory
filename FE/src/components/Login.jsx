@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom'
 
 const Login = () => {
@@ -11,7 +11,7 @@ const Login = () => {
       if(username, password){
         try{
           console.log(username, password)
-          axios.post('http://localhost:4000/login',{
+          axios.post('https://muraliaari-user-inventory.netlify.app/login',{
             username,
             password
           }).then((res)=>{

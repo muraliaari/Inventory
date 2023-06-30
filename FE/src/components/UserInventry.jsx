@@ -71,7 +71,7 @@ const USerInventry = () => {
     console.log(sessionStorage.getItem('name'),  username)
     if(company){
       try{
-        await axios.post("http://localhost:4000/userinventory",{
+        await axios.post("https://muraliaari-user-inventory.netlify.app/userinventory",{
           username,
           company,
           category,
@@ -112,7 +112,7 @@ const USerInventry = () => {
       const username = sessionStorage.getItem('username');
       const companyName = itemsarray[index].company;
 
-      await axios.delete(`http://localhost:4000/userinventory/${username}/${companyName}`);
+      await axios.delete(`https://muraliaari-user-inventory.netlify.app/userinventory/${username}/${companyName}`);
       const updatedItemsArray = [...itemsarray];
       updatedItemsArray.splice(index, 1);
       setitems(updatedItemsArray);
