@@ -78,7 +78,7 @@ const BuyDetails = () => {
   const htmlTemplate = generateHTMLTemplate(detailsArray, subtotal);
 
   axios
-    .post('http://localhost:4000/send-email', {
+    .post('https://inventory-q0g5.onrender.com/send-email', {
       to: data.email,
       from: 'kunashaari@gmail.com',
       subject: 'Bill Details',
