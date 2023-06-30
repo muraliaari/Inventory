@@ -1,6 +1,8 @@
 import {UserModel, CompanyModel, ItemModel} from "./UserModels.js";
 import bcrypt from 'bcryptjs';
 import axios from 'axios'
+import dotenv from 'dotenv';
+
 
 const AddUserDetails = async (req, res)=>{
     const {name, username, password, cpassword} = req.body
@@ -168,8 +170,8 @@ const sendEmail = async(req, res)=>{
     try {
         const { to, from, subject, html } = req.body;
         // console.log(to, from, subject, html)
-        const sendGridApiKey = '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'
-    
+        const sendGridApiKey = process.env.sendGridApiKey;
+
         const response = await axios.post('https://api.sendgrid.com/v3/mail/send', {
           personalizations: [
             {
